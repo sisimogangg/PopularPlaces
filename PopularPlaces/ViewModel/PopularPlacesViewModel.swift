@@ -41,6 +41,10 @@ class PopularPlacesViewModel {
         }
         Alamofire.request(util.buildRequestURL(using: location)).responseData{ [weak self](responseData) -> Void in
             do {
+                print("start of print")
+                let s = self?.util.buildRequestURL(using: location)
+                print(String(s!))
+                print("end of print")
                 self?.foursquareApi = try JSONDecoder().decode(FoursQuarePlace.self, from: responseData.data!)
                 
             }catch let jsonErr {
@@ -60,8 +64,8 @@ class PopularPlacesViewModel {
                     name = venueName
                     address = getCustomAddress(using: index)
                     // Divide rating by 2 since we only have five stars
-                    let div = venue.rating / 2
-                    rating = Int(div)
+                    //let div = venue.rating / 2
+                    //rating = Int(div)
                     
                     if let photo = place.photo {
                         photoUrl = URL(string: util.buildPhotoRequestURL(usingPrefix: photo.prefix, andSuffix: photo.suffix))

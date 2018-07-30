@@ -74,7 +74,7 @@ struct VenueDetails : Codable {
     let contact : Contact?
     let location : Location?
     let stats : Stats?
-    let rating : Float
+    //let rating : Float
 }
 
 struct Contact : Codable {

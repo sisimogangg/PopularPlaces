@@ -40,6 +40,7 @@ class MyLocationViewController: UIViewController, CLLocationManagerDelegate  {
     // MARK: View LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // For use when the app is open & in the background
         locationManager.requestAlwaysAuthorization()
         
@@ -107,7 +108,7 @@ class MyLocationViewController: UIViewController, CLLocationManagerDelegate  {
     // MARK: - Helpers
     private func getLocation(){
         if CLLocationManager.locationServicesEnabled(){
-            locationManager.startUpdatingLocation() //not advisable best to use 'requestLocation' method ?
+            locationManager.startUpdatingLocation() //not recommended best to use 'requestLocation' method ?
         }
     }
     private func warnUser() {
